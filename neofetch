@@ -2542,7 +2542,7 @@ get_resolution() {
         ;;
 
         "Haiku")
-            resolution="$(screenmode | awk -F ' |, ' '{printf $2 "x" $3 " @ " $6 $7}')"
+            resolution="$(screenmode | grep Resolution | awk -F ' |, ' '{printf $2 "x" $3 " @ " $6 $7}')"
 
             [[ "$refresh_rate" == "off" ]] && resolution="${resolution/ @*}"
         ;;
